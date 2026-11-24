@@ -4,8 +4,8 @@
 Strategy (written from scratch for agent-fun/replay/v2):
   * Watch every new bonding curve from its CreateEvent and record its first
     seen price (virtual_quote_reserves / virtual_token_reserves).
-  * Enter when a coin shows early momentum: price up >= 12% from first seen,
-    at least 4 trades, within 900 slots (~6 min) of creation. Stake is
+  * Enter when a coin shows early momentum: price up >= 20% from first seen,
+    at least 6 trades, within 900 slots (~6 min) of creation. Stake is
     min(0.12 SOL, the harness size cap), at least 0.02 SOL, at most 5 open
     positions, and cash is never drawn below a 0.5 SOL reserve.
   * Exit every position by rule, never by hope: take profit at +45% vs the
@@ -32,8 +32,8 @@ MIN_STAKE_LAMPORTS = 2 * SOL // 100       # 0.02 SOL minimum meaningful stake
 CASH_RESERVE_LAMPORTS = SOL // 2          # keep 0.5 SOL cash untouched
 MAX_SLIPPAGE_BPS = 800
 
-ENTRY_RISE_NUM = 112                      # price >= 112% of first-seen price
-ENTRY_MIN_TRADES = 4
+ENTRY_RISE_NUM = 120                      # price >= 120% of first-seen price
+ENTRY_MIN_TRADES = 6
 ENTRY_WINDOW_SLOTS = 900                  # ~6 min after creation
 TAKE_PROFIT_NUM = 145                     # +45% vs average cost price
 STOP_LOSS_NUM = 80                        # -20% vs average cost price
